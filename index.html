@@ -169,16 +169,57 @@
       </div>
     </section>
 
-    <!-- Behavioural Analysis -->
-    <section id="behaviour">
-      <h3>Behavioural Analysis</h3>
-      <div class="behaviour-grid">
-        <div class="talent-icon">A</div>
-        <div class="talent-icon">B</div>
-        <div class="talent-icon">C</div>
-        <div class="talent-icon">D</div>
-      </div>
-    </section>
+    <script>
+/* Interactive Behavioural Talents */
+const talentCards = document.querySelectorAll('#behaviour .card');
+talentCards.forEach(card => {
+  const icon = card.querySelector('.talent-icon');
+  card.addEventListener('mouseenter', () => {
+    icon.style.transform = "scale(1.2) translateZ(10px)";
+    icon.style.boxShadow = "0 12px 28px rgba(201,163,74,0.35)";
+  });
+  card.addEventListener('mouseleave', () => {
+    icon.style.transform = "scale(1) translateZ(20px)";
+    icon.style.boxShadow = "0 8px 20px rgba(201,163,74,0.25)";
+  });
+});
+
+/* Radar Chart */
+window.addEventListener('load', () => {
+  const ctx = document.getElementById('skillsRadar').getContext('2d');
+  new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: ['Persuasion', 'Conflict Resolution', 'Adaptation'],
+      datasets: [{
+        label: 'Strength Level',
+        data: [95, 92, 94],
+        borderWidth: 2,
+        borderColor: 'rgba(201,163,74,1)',
+        backgroundColor: 'rgba(201,163,74,0.25)',
+        pointBackgroundColor: 'rgba(201,163,74,1)'
+      }]
+    },
+    options: {
+      scales: {
+        r: {
+          beginAtZero: true,
+          suggestedMax: 100,
+          grid: { color: 'rgba(255,255,255,0.08)' },
+          angleLines: { color: 'rgba(255,255,255,0.08)' },
+          pointLabels: { color: getComputedStyle(document.documentElement).getPropertyValue('--text') || '#F6F2EB' }
+        }
+      },
+      plugins: {
+        legend: { labels: { color: getComputedStyle(document.documentElement).getPropertyValue('--text') || '#F6F2EB' } }
+      },
+      responsive: true,
+      maintainAspectRatio: false
+    }
+  });
+});
+</script>
+
 
     <!-- Timeline -->
     <section id="timeline">
