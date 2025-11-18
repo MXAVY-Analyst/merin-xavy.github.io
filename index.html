@@ -1,199 +1,264 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Merin Xavy — Financial Analyst Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Merin Xavy — Financial Analyst Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
 
-<!-- three.js -->
-<script src="https://unpkg.com/three@0.154.0/build/three.min.js"></script>
-<!-- Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<style>
-:root{
-  --bg: #101829;
-  --card: rgba(255,255,255,0.12);
-  --text: #1A1A1A;
-  --text-light: #444;
-  --muted: #5B6073;
-  --gold: #D4AF37;
-  --card-shadow: 0 20px 40px rgba(0,0,0,0.12);
-  --highlight: #FAF7F2;
-}
+  <style>
+  :root {
+    --bg: #FAF7F2;
+    --card: rgba(255,255,255,0.12);
+    --text: #1A1A1A;
+    --text-light: #444;
+    --muted: #5B6073;
+    --gold: #D4AF37;
+    --card-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    --highlight: #FFFFFF;
+  }
 
-*{box-sizing:border-box;}
-html,body{height:100%;}
-body{
-  margin:0;
-  font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
-  background: linear-gradient(to bottom, #FAF7F2, #F3EEE6);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  overflow-x:hidden;
-}
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial; background: var(--bg); color:var(--text); scroll-behavior:smooth; }
+  a { text-decoration:none; }
+  img { display:block; max-width:100%; }
 
-/* canvas background */
-#bg-canvas{position:fixed; inset:0; z-index:0; pointer-events:none;}
+  header {
+    position:sticky;
+    top:0;
+    z-index:100;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:24px clamp(16px,4vw,48px);
+    background:rgba(250,247,242,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom:1px solid rgba(212,175,55,0.12);
+  }
+  .brand { display:flex; align-items:center; gap:12px; }
+  .brand h1 { margin:0; font-family:"Playfair Display"; font-weight:800; font-size:20px; color:var(--text); }
+  nav a { color:var(--muted); margin-left:20px; font-weight:600; transition:0.3s; }
+  nav a:hover { color:var(--gold); }
 
-header{position:relative; z-index:3; display:flex; justify-content:space-between; align-items:center; padding:28px clamp(18px,4vw,48px);}
-.brand{display:flex; align-items:center; gap:14px;}
-.brand h1{margin:0; font-family:"Playfair Display"; letter-spacing:0.8px; font-size:20px; color:var(--text);}
-nav a{color:var(--muted); text-decoration:none; margin-left:20px; font-weight:600;}
-nav a:hover{color:var(--gold)}
+  /* Hero Section */
+  .hero { min-height:80vh; display:flex; align-items:center; justify-content:center; padding:48px 24px; position:relative; }
+  .hero-grid {
+    display:grid;
+    grid-template-columns: 1fr 420px;
+    gap:32px;
+    max-width:1100px;
+    width:100%;
+    align-items:start;
+  }
+  .intro, .profile {
+    background: var(--highlight);
+    border-radius:20px;
+    padding:28px;
+    box-shadow:var(--card-shadow);
+  }
+  .intro h2 { font-family:"Playfair Display"; font-size:34px; margin-bottom:6px; }
+  .intro p.lead { color:var(--muted); margin:6px 0 18px; font-size:15px; }
+  .meta { display:flex; flex-wrap:wrap; gap:12px; margin-top:14px; }
+  .pill { background:var(--card); padding:8px 12px; border-radius:999px; color:var(--text); border:1px solid rgba(255,255,255,0.02); font-weight:600; font-size:13px; }
+  .ctas { display:flex; flex-wrap:wrap; gap:14px; margin-top:20px; }
+  .btn { background:transparent; color:var(--text); border:2px solid rgba(0,0,0,0.06); padding:12px 18px; border-radius:10px; cursor:pointer; font-weight:700; transition:0.3s; }
+  .btn:hover { background:rgba(212,175,55,0.08); }
+  .btn.primary { background:linear-gradient(90deg,var(--gold),rgba(201,163,74,0.85)); color:var(--bg); border:none; box-shadow:0 8px 30px rgba(201,163,74,0.12); }
 
-.hero{min-height:80vh; display:grid; place-items:center; position:relative; padding:48px; z-index:2;}
-.hero-grid{width:100%; max-width:1100px; display:grid; grid-template-columns: 1fr 420px; gap:32px; align-items:center;}
+  .profile { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; height:420px; border:1px solid rgba(212,175,55,0.06); }
+  .portrait { width:180px; height:180px; border-radius:20px; object-fit:cover; transform-style:preserve-3d; transition: transform 0.4s ease, box-shadow 0.4s ease; border:3px solid rgba(212,175,55,0.4); box-shadow:0 10px 25px rgba(0,0,0,0.15),0 0 25px rgba(212,175,55,0.25); }
 
-.intro, .card, .profile {
-  background: var(--highlight);
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 20px;
-  box-shadow: var(--card-shadow);
-  color: var(--text);
-}
+  /* Sections */
+  section { padding:72px 24px; max-width:1100px; margin:0 auto; }
+  h3 { font-family:"Playfair Display"; font-size:28px; margin-bottom:24px; }
+  p { line-height:1.6; margin-bottom:16px; color:var(--text-light); }
 
-.intro h2{font-family:"Playfair Display"; font-size:34px; margin:0 0 6px;}
-.intro p.lead{color:var(--muted); margin:6px 0 18px; font-size:15px;}
-.meta{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;}
-.pill{background:var(--card); padding:8px 12px; border-radius:999px; color:var(--text); border:1px solid rgba(255,255,255,0.02); font-weight:600; font-size:13px;}
+  /* Projects */
+  .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; }
+  .card { background: var(--highlight); padding:20px; border-radius:18px; box-shadow:var(--card-shadow); transition:0.3s; }
+  .card:hover { transform:translateY(-4px); }
 
-.ctas{display:flex; gap:14px; margin-top:20px;}
-.btn{background:transparent; color:var(--text); border:2px solid rgba(255,255,255,0.06); padding:12px 18px; border-radius:10px; cursor:pointer; text-decoration:none; font-weight:700;}
-.btn.primary{background:linear-gradient(90deg,var(--gold),rgba(201,163,74,0.85)); color:var(--bg); border:none; box-shadow: 0 8px 30px rgba(201,163,74,0.12);}
+  /* Behaviour Analysis */
+  .behaviour-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:18px; }
+  .talent-icon { width:60px; height:60px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:800; color:var(--bg); background:linear-gradient(135deg,var(--gold),rgba(201,163,74,0.5)); box-shadow:0 8px 20px rgba(201,163,74,0.25); }
 
-.profile{
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border-radius:18px; padding:18px; display:flex; gap:12px; align-items:center; justify-content:center;
-  border:1px solid rgba(201,163,74,0.06); position:relative; height:420px;
-}
-.portrait {
-  width: 210px;
-  height: 210px;
-  border-radius: 20px;
-  overflow: hidden;
-  object-fit: cover;
-  transform-style: preserve-3d;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  border: 3px solid rgba(212,175,55,0.4);
-  box-shadow:
-     0 10px 25px rgba(0,0,0,0.15),
-     0 0 25px rgba(212,175,55,0.25);
-}
+  /* Timeline */
+  .timeline { border-left:2px solid rgba(201,163,74,0.3); padding-left:20px; margin-top:24px; }
+  .t-item { margin-bottom:30px; position:relative; }
+  .t-dot { width:14px; height:14px; background:var(--gold); border-radius:50%; position:absolute; left:-29px; top:4px; box-shadow:0 4px 10px rgba(201,163,74,0.3); }
+  .t-content h4 { margin:0; color:var(--text); }
+  .t-content p { color:var(--muted); margin:6px 0 0; }
 
-/* talent icon */
-.talent-row{display:flex; gap:12px; align-items:center; margin-bottom:12px;}
-.talent-icon {
-  width:60px; height:60px; background: linear-gradient(135deg, var(--gold), rgba(201,163,74,0.5)); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:800; color:var(--bg); box-shadow: 0 8px 20px rgba(201,163,74,0.25); transform: translateZ(20px);
-}
+  /* Radar Chart */
+  #radar canvas { width:100%; max-width:540px; height:auto; }
 
-/* timeline */
-.timeline { margin-top: 20px; border-left: 2px solid rgba(201,163,74,0.3); padding-left: 20px; }
-.t-item { margin-bottom: 30px; position: relative; }
-.t-dot { width: 14px; height: 14px; background: var(--gold); border-radius: 50%; position: absolute; left: -29px; top: 4px; box-shadow: 0 4px 10px rgba(201,163,74,0.3); }
-.t-content h4 { margin: 0; color: var(--text); }
-.t-content p { color: var(--muted); margin: 6px 0 0; }
+  /* Footer */
+  footer { padding:48px; text-align:center; color:var(--muted); border-top:1px solid rgba(212,175,55,0.12); }
 
-/* radar chart container */
-#radar canvas { width:100%; max-width:540px; height:auto; }
-
-footer{padding:48px; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,0.02)}
-
-@media (max-width:960px){ .hero-grid{grid-template-columns:1fr; gap:18px} .profile{height:320px} }
-
-:focus{outline:3px solid rgba(201,163,74,0.15); outline-offset:2px}
-@media (prefers-reduced-motion: reduce){*{transition:none!important; animation:none!important}}
-</style>
+  @media (max-width:960px) { .hero-grid { grid-template-columns:1fr; gap:24px; } .profile { height:320px; } }
+  </style>
 </head>
+
 <body>
+  <header>
+    <div class="brand">
+      <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--gold),rgba(201,163,74,0.6));display:flex;align-items:center;justify-content:center;color:var(--bg);font-weight:800">MX</div>
+      <h1>Merin Xavy</h1>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#behaviour">Behaviour</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<canvas id="bg-canvas"></canvas>
-
-<header>
-  <div class="brand">
-    <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--gold),rgba(201,163,74,0.6));display:flex;align-items:center;justify-content:center;color:var(--bg);font-weight:800">MX</div>
-    <h1>Merin Xavy</h1>
-  </div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
-    <a href="#behaviour">Behaviour</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<main>
-  <section class="hero">
-    <div class="hero-grid container">
-      <div class="intro" id="tilt-card">
-        <h2>Merin Xavy</h2>
-        <p class="lead">Financial Analyst · Corporate Controlling · Risk & Compliance</p>
-        <p>Master in Management (M2) — ESDES Business School. I design data-driven finance solutions, build BI dashboards (SQL / Power BI), and implement internal control frameworks that reduce operational risk.</p>
-
-        <div class="meta" style="margin-top:14px">
-          <span class="pill">SQL • Power BI</span>
-          <span class="pill">Advanced Excel</span>
-          <span class="pill">Financial Modeling</span>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="intro">
+          <h2>Merin Xavy</h2>
+          <p class="lead">Financial Analyst · Corporate Controlling · Risk & Compliance</p>
+          <p>Master in Management (M2) — ESDES Business School. I design data-driven finance solutions, build BI dashboards (SQL / Power BI), and implement internal control frameworks that reduce operational risk.</p>
+          <div class="meta">
+            <span class="pill">SQL • Power BI</span>
+            <span class="pill">Advanced Excel</span>
+            <span class="pill">Financial Modeling</span>
+          </div>
+          <div class="ctas">
+            <a class="btn primary" href="Financial Analyst and Controller Resume_Merin Xavy.pdf" target="_blank" rel="noopener">Resume (EN)</a>
+            <a class="btn" href="CV Analyste Financier et Contrôleur.pdf" target="_blank" rel="noopener">CV (FR)</a>
+            <a class="btn" href="#projects">View Projects</a>
+          </div>
+          <div style="margin-top:18px;color:var(--muted);font-size:13px">
+            Availability: Full-time from March 2026
+          </div>
         </div>
 
-        <div class="ctas">
-          <a class="btn primary" href="Financial Analyst and Controller Resume_Merin Xavy.pdf" target="_blank" rel="noopener">Resume (EN)</a>
-          <a class="btn" href="CV Analyste Financier et Contrôleur.pdf" target="_blank" rel="noopener">CV (FR)</a>
-          <a class="btn" href="#projects">View Projects</a>
-        </div>
+        <aside class="profile">
+          <img src="Linkedln.jpg" alt="Merin Xavy" class="portrait">
+          <ul style="margin-top:14px; text-align:center; list-style:none; padding:0;">
+            <li><strong>Lyon, France</strong></li>
+            <li>Email: xavy.merin@gmail.com</li>
+            <li>LinkedIn: linkedin.com/in/merin-xavy/</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
 
-        <div style="margin-top:18px;color:var(--muted);font-size:13px">
-          Availability: Full-time from March 2026
+    <!-- About -->
+    <section id="about">
+      <h3>About Me</h3>
+      <p>I am a passionate Financial Analyst skilled in corporate controlling, risk management, and data-driven decision-making. I specialize in building BI dashboards, implementing internal controls, and optimizing financial processes to enhance efficiency and accuracy in global organizations.</p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h3>Projects</h3>
+      <div class="projects-grid">
+        <div class="card"><h4>Financial Dashboard</h4><p>Created SQL & Power BI dashboards to track KPIs and operational efficiency.</p></div>
+        <div class="card"><h4>Risk Assessment Model</h4><p>Implemented internal controls to reduce operational risk for a multinational corporation.</p></div>
+        <div class="card"><h4>Investment Analysis Tool</h4><p>Developed a model for analyzing real estate investments across multiple US states.</p></div>
+      </div>
+    </section>
+
+    <!-- Behavioural Analysis -->
+    <section id="behaviour">
+      <h3>Behavioural Analysis</h3>
+      <div class="behaviour-grid">
+        <div class="talent-icon">A</div>
+        <div class="talent-icon">B</div>
+        <div class="talent-icon">C</div>
+        <div class="talent-icon">D</div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline">
+      <h3>Timeline</h3>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-content"><h4>2025 — Master in Management (M2)</h4><p>ESDES Business School, Lyon, France</p></div>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-content"><h4>2023 — Financial Analyst Internship</h4><p>Completed internship in corporate finance and risk control.</p></div>
         </div>
       </div>
+    </section>
 
-      <aside class="profile" aria-label="profile card">
-        <div style="text-align:center">
-          <img src="Linkedln.jpg" alt="Merin Xavy" class="portrait">
-          <ul style="margin-top:14px">
-            <li><strong style="color:var(--text)">Lyon, France</strong></li>
-            <li style="color:var(--muted)">Email: xavy.merin@gmail.com</li>
-            <li style="color:var(--muted)">LinkedIn: linkedin.com/in/merin-xavy/</li>
-          </ul>
-        </div>
-      </aside>
-    </div>
-  </section>
+    <!-- Radar Chart -->
+    <section id="skills">
+      <h3>Skills Radar</h3>
+      <div id="radar">
+        <canvas id="radarChart"></canvas>
+      </div>
+    </section>
 
-  <!-- Add other sections like About, Projects, Behaviour, Resume here... same as your current version -->
+    <!-- Resume -->
+    <section id="resume">
+      <h3>Resume</h3>
+      <p>Download my resume for detailed professional experience, education, and projects:</p>
+      <a class="btn primary" href="Financial Analyst and Controller Resume_Merin Xavy.pdf" target="_blank" rel="noopener">Download Resume (EN)</a>
+    </section>
 
-</main>
+  </main>
 
-<!-- 3D profile tilt JS -->
-<script>
-const profile = document.querySelector('.portrait');
+  <footer>
+    &copy; 2025 Merin Xavy. All rights reserved.
+  </footer>
 
-profile.addEventListener('mousemove', (e) => {
-    const rect = profile.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
+  <!-- 3D Profile Tilt JS -->
+  <script>
+    const profile = document.querySelector('.portrait');
+    profile.addEventListener('mousemove', (e) => {
+      const rect = profile.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
 
-    const rotateY = (x - 0.5) * 16;
-    const rotateX = (0.5 - y) * 16;
+      const rotateY = (x - 0.5) * 16;
+      const rotateX = (0.5 - y) * 16;
 
-    profile.style.transform =
-      `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
-    profile.style.boxShadow =
-      `0 20px 50px rgba(0,0,0,0.2),
-       0 0 40px rgba(212,175,55,0.4)`;
-});
+      profile.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
+      profile.style.boxShadow = `0 20px 50px rgba(0,0,0,0.2), 0 0 40px rgba(212,175,55,0.4)`;
+    });
+    profile.addEventListener('mouseleave', () => {
+      profile.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+      profile.style.boxShadow = "0 10px 25px rgba(0,0,0,0.15), 0 0 25px rgba(212,175,55,0.25)";
+    });
 
-profile.addEventListener('mouseleave', () => {
-    profile.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
-    profile.style.boxShadow =
-      `0 10px 25px rgba(0,0,0,0.15),
-       0 0 25px rgba(212,175,55,0.25)`;
-});
-</script>
-
+    // Radar Chart
+    const ctx = document.getElementById('radarChart').getContext('2d');
+    const radarChart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['SQL', 'Power BI', 'Excel', 'Financial Modeling', 'Risk Management', 'Data Analysis'],
+        datasets: [{
+          label: 'Skill Level',
+          data: [90, 85, 95, 80, 75, 88],
+          backgroundColor: 'rgba(212,175,55,0.2)',
+          borderColor: 'rgba(212,175,55,1)',
+          borderWidth: 2,
+          pointBackgroundColor: 'rgba(212,175,55,1)',
+        }]
+      },
+      options: {
+        scales: {
+          r: { beginAtZero:true, min:0, max:100, ticks:{ stepSize:20, color:'#1A1A1A' } }
+        },
+        plugins: { legend:{ display:false } },
+        responsive:true,
+        maintainAspectRatio:false
+      }
+    });
+  </script>
 </body>
 </html>
