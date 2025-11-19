@@ -330,38 +330,6 @@ h4 { font-size: 28px; margin-bottom: 24px; }
   line-height: 1.7; 
   color: var(--text-light);
 }
-
-.exp-card li { margin-bottom: 8px; font-size: 15px; }
-
-.inventure-logo {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
-  
-  /* --- STYLING FOR THE NEW IMAGE --- */
-  /* Remove the old gradient background */
-  background: none; 
-  
-  /* Use the uploaded image as the background */
-  background-image: url('images/inventure.png'); /* ⬅️ Image path updated */
-  background-size: 90%; /* Scale the image to fit the box cleanly */
-  background-position: center;
-  background-repeat: no-repeat;
-  
-  /* Remove text-related styles (the "INV" text is already removed from HTML) */
-  color: transparent; 
-  font-weight: normal;
-  font-size: 0;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
 /* --- 7. Projects & Certifications --- */
 .projects-grid, .cert-grid {
   display: grid;
