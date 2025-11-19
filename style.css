@@ -426,9 +426,10 @@ h4 { font-size: 28px; margin-bottom: 24px; }
 footer { 
   padding: 48px; 
   text-align: center; 
-  color: var(--muted); 
-  /* Green RGB for border opacity */
-  border-top: 1px solid rgba(22, 160, 133, 0.2); 
+  /* CHANGE THIS LINE: Use the dark text variable */
+  color: var(--text); 
+  /* Ensure the top border matches the dark text/accent */
+  border-top: 1px solid rgba(44, 62, 80, 0.2); /* Using Slate Blue RGB */
 }
 
 .footer-contact {
@@ -439,8 +440,16 @@ footer {
   flex-wrap: wrap;
 }
 
-.footer-contact a { color: var(--text-light); transition: color 0.3s; }
-.footer-contact a:hover { color: var(--accent); }
+.footer-contact a { 
+  /* CHANGE THIS LINE: Use the dark text variable */
+  color: var(--text); 
+  transition: color 0.3s; 
+}
+
+.footer-contact a:hover { 
+  /* Keep the hover color as the bright accent for contrast */
+  color: var(--accent); 
+}
 
 /* --- 11. Responsive Media Queries --- */
 @media (max-width: 900px) {
