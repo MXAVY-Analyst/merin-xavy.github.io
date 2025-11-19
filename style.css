@@ -1,16 +1,22 @@
+/*
+ * Professional Portfolio CSS - Cool-Tone Theme
+ * Author: Merin Xavy
+ * Purpose: Styling for a modern, low-contrast, cool-toned professional portfolio.
+ */
+
 /* --- 1. Global Variables & Reset --- */
 :root {
-  /* NUDE COLOR PALETTE */
-  --bg: #EBE3DB;           /* Very Light Nude - Main Background */
-  --text: #3A2D28;         /* Dark Brown - Main Text */
-  --text-light: #A48374;   /* Muted Brown - Secondary Text */
-  --muted: #A48374;        /* Muted Brown - Links/Detail Text */
-  --gold: #CBAD8D;         /* Mid-tone Nude - Accent/Primary Button */
-  --light-border: rgba(203, 173, 141, 0.4); /* Light Nude/Taupe for subtle lines */
-  --highlight: #F1EDE6;    /* Off-White/Cream - Card Background */
-  --card-shadow: 0 15px 30px rgba(0,0,0,0.06); 
+  /* MODERN COOL-TONE PALETTE */
+  --bg: #F5F7F9;           /* Very Light Grey/Blue - Main Background (Subtle cream) */
+  --text: #2C3E50;         /* Deep Slate Blue - Main Text */
+  --text-light: #7F8C8D;   /* Muted Grey/Silver - Secondary Text/Paragraphs */
+  --muted: #7F8C8D;        /* Muted Grey/Silver - Links/Detail Text */
+  --accent: #16A085;       /* Deep Forest Green - Accent/Primary Button (The 'Gold' equivalent) */
+  --light-border: rgba(22, 160, 133, 0.3); /* Transparent Green for subtle lines */
+  --highlight: #FFFFFF;    /* Pure White - Card Background */
+  --card-shadow: 0 10px 20px rgba(44, 62, 80, 0.06); /* Darker, cleaner shadow */
   --transition-speed: 0.4s;
-  --dark-bg: #3A2D28;      /* Dark Background for Thank You page */
+  --dark-bg: #2C3E50;      /* Deep Slate Blue - Dark Background (for Thank You page) */
 }
 
 * { box-sizing: border-box; }
@@ -88,7 +94,7 @@ h3, p, span, li {
   transition: color 0.3s;
 }
 
-.splash-cta:hover { color: var(--gold); }
+.splash-cta:hover { color: var(--accent); } /* Updated: uses --accent */
 
 .arrow-down {
   width: 30px;
@@ -98,7 +104,7 @@ h3, p, span, li {
   animation: bounce 2s infinite;
 }
 
-.splash-cta:hover .arrow-down { fill: var(--gold); }
+.splash-cta:hover .arrow-down { fill: var(--accent); } /* Updated: uses --accent */
 
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
@@ -116,7 +122,8 @@ header {
   align-items: center;
   padding: 20px clamp(16px,4vw,48px);
   background: var(--bg); 
-  border-bottom: 1px solid rgba(203, 173, 141, 0.2);
+  /* Updated: uses new accent color RGB for border opacity */
+  border-bottom: 1px solid rgba(22, 160, 133, 0.2); 
 }
 
 .brand { display: flex; align-items: center; gap: 12px; }
@@ -125,8 +132,8 @@ header {
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: var(--gold);
-  background-image: url('image_93f7e7.png'); /* Using the uploaded logo */
+  background: var(--accent); /* Updated: uses --accent */
+  background-image: url('image_93f7e7.png'); 
   background-size: cover;
   background-position: center;
 }
@@ -140,7 +147,7 @@ nav a {
   transition: 0.3s;
 }
 
-nav a:hover { color: var(--gold); }
+nav a:hover { color: var(--accent); } /* Updated: uses --accent */
 
 /* --- 5. Hero Section (40:60 Split) --- */
 .hero-container {
@@ -214,11 +221,13 @@ nav a:hover { color: var(--gold); }
   margin-top: 25px; 
   margin-bottom: 25px;
   padding-top: 10px;
-  border-top: 1px dashed rgba(203, 173, 141, 0.2); 
+  /* Updated: uses new accent color RGB for dashed border opacity */
+  border-top: 1px dashed rgba(22, 160, 133, 0.2); 
 }
 
 .pill {
-  background: rgba(203, 173, 141, 0.1); 
+  /* Updated: uses new accent color RGB for background opacity */
+  background: rgba(22, 160, 133, 0.1); 
   color: var(--text);
   padding: 6px 12px;
   border-radius: 4px;
@@ -229,19 +238,20 @@ nav a:hover { color: var(--gold); }
 .btn-group { margin-top: 30px; }
 
 .btn-download {
-  background: var(--gold);
+  background: var(--accent); /* Updated: uses --accent */
   color: var(--highlight);
   border: none;
   padding: 12px 20px;
   border-radius: 8px;
   font-weight: 700;
   transition: var(--transition-speed);
-  box-shadow: 0 4px 15px rgba(203, 173, 141, 0.4);
+  /* Updated: uses new accent color RGB for shadow opacity */
+  box-shadow: 0 4px 15px rgba(22, 160, 133, 0.4); 
 }
 
 .btn-download:hover {
-  background: #A48374;
-  box-shadow: 0 6px 20px rgba(164, 131, 116, 0.6);
+  background: #1abc9c; /* Slightly lighter shade of accent for hover */
+  box-shadow: 0 6px 20px rgba(22, 160, 133, 0.6);
 }
 
 .btn-view {
@@ -257,7 +267,7 @@ nav a:hover { color: var(--gold); }
 
 .btn-view:hover {
   background: var(--highlight);
-  border-color: var(--gold);
+  border-color: var(--accent); /* Updated: uses --accent */
 }
 
 .availability-note { 
@@ -265,7 +275,8 @@ nav a:hover { color: var(--gold); }
   color: var(--muted); 
   margin-top: 25px; 
   padding-top: 15px; 
-  border-top: 1px dashed rgba(203, 173, 141, 0.2); 
+  /* Updated: uses new accent color RGB for dashed border opacity */
+  border-top: 1px dashed rgba(22, 160, 133, 0.2); 
 }
 
 @keyframes slideInFromLeft {
@@ -288,7 +299,7 @@ h4 { font-size: 28px; margin-bottom: 24px; }
   background: var(--highlight); 
   padding: 30px; 
   border-radius: 24px; 
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(203, 173, 141, 0.1); 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(22, 160, 133, 0.1); /* Updated: Accent RGB */
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
   position: relative; 
   min-height: 280px; 
@@ -328,7 +339,8 @@ h4 { font-size: 28px; margin-bottom: 24px; }
   width: 60px;
   height: 60px;
   border-radius: 8px;
-  background: linear-gradient(45deg, #A48374, #3A2D28);
+  /* Updated: gradient now uses the accent color and dark background */
+  background: linear-gradient(45deg, #16A085, #2C3E50); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -354,7 +366,7 @@ h4 { font-size: 28px; margin-bottom: 24px; }
 }
 
 .cert-card { display: flex; flex-direction: column; justify-content: center; }
-.cert-card a { color: var(--gold); font-weight: 600; font-size: 14px; margin-top: 10px; display: block; }
+.cert-card a { color: var(--accent); font-weight: 600; font-size: 14px; margin-top: 10px; display: block; } /* Updated: uses --accent */
 
 /* --- 8. Language Grid --- */
 .language-grid { 
@@ -365,7 +377,7 @@ h4 { font-size: 28px; margin-bottom: 24px; }
 }
 
 .language-card {
-  border-left: 5px solid var(--gold); 
+  border-left: 5px solid var(--accent); /* Updated: uses --accent */
   background: var(--highlight); 
   padding: 20px; 
   border-radius: 18px; 
@@ -386,17 +398,18 @@ h4 { font-size: 28px; margin-bottom: 24px; }
 .t-dot {
   width: 14px;
   height: 14px;
-  background: var(--gold);
+  background: var(--accent); /* Updated: uses --accent */
   border-radius: 50%;
   position: absolute;
   left: -29px;
   top: 4px;
-  box-shadow: 0 4px 10px rgba(203,173,141,0.4);
+  /* Updated: Accent RGB for shadow */
+  box-shadow: 0 4px 10px rgba(22, 160, 133, 0.4); 
 }
 
 /* --- 10. Footer & Contact --- */
 #thank-you {
-  background: var(--dark-bg);
+  background: var(--dark-bg); /* Updated: uses --dark-bg (Slate Blue) */
   color: var(--highlight);
   text-align: center;
   padding: 15vh 24px; 
@@ -413,7 +426,8 @@ footer {
   padding: 48px; 
   text-align: center; 
   color: var(--muted); 
-  border-top: 1px solid rgba(203,173,141,0.2); 
+  /* Updated: Accent RGB for border opacity */
+  border-top: 1px solid rgba(22, 160, 133, 0.2); 
 }
 
 .footer-contact {
@@ -425,7 +439,7 @@ footer {
 }
 
 .footer-contact a { color: var(--text-light); transition: color 0.3s; }
-.footer-contact a:hover { color: var(--gold); }
+.footer-contact a:hover { color: var(--accent); } /* Updated: uses --accent */
 
 /* --- 11. Responsive Media Queries --- */
 @media (max-width: 900px) {
