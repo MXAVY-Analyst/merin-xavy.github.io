@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Merin Xavy — Financial Analyst Portfolio</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
 
-  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
@@ -90,6 +88,23 @@
   .t-content h4 { margin:0; color:var(--text); }
   .t-content p { color:var(--muted); margin:6px 0 0; }
 
+  /* Certifications */
+  .cert-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
+  .cert-card {
+    background: var(--highlight);
+    padding:20px;
+    border-radius:18px;
+    box-shadow:var(--card-shadow);
+    display:flex;
+    gap:15px;
+    align-items:center;
+    transition:0.3s;
+    border-left:5px solid var(--gold);
+  }
+  .cert-card:hover { transform:translateY(-4px); box-shadow:0 24px 48px rgba(0,0,0,0.15); }
+  .cert-card a { color:var(--gold); font-weight:600; font-size:14px; margin-top:8px; display:inline-block; }
+  .cert-icon { width:48px; height:48px; flex-shrink:0; }
+
   /* Radar Chart */
   #radar canvas { width:100%; max-width:540px; height:auto; }
 
@@ -98,9 +113,6 @@
   .talent-icon { width:60px; height:60px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:800; color:var(--bg); background:linear-gradient(135deg,var(--gold),rgba(201,163,74,0.5)); box-shadow:0 8px 20px rgba(201,163,74,0.25); transition: transform 0.3s, box-shadow 0.3s; }
   .talent-card { text-align:center; padding:18px; background:var(--highlight); border-radius:16px; box-shadow:var(--card-shadow); transition:0.3s; }
   .talent-card:hover { transform:translateY(-4px); }
-
-  /* Footer */
-  footer { padding:48px; text-align:center; color:var(--muted); border-top:1px solid rgba(212,175,55,0.12); }
 
   @media (max-width:960px) { .hero-grid { grid-template-columns:1fr; gap:24px; } .profile { height:320px; } }
   </style>
@@ -114,135 +126,235 @@
     </div>
     <nav>
       <a href="#about">About</a>
+      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
       <a href="#skills">Skills</a>
-      <a href="#behaviour">Behaviour</a>
+      <a href="#certifications">Certifications</a>
       <a href="#timeline">Timeline</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
-    <!-- Hero -->
     <section class="hero">
       <div class="hero-grid">
         <div class="intro">
           <h2>Merin Xavy</h2>
           <p class="lead">Financial Analyst · Corporate Controlling · Risk & Compliance</p>
-          <p>Passionate about designing **data-driven finance solutions**, building BI dashboards, and implementing internal control frameworks that reduce operational risk and enhance financial efficiency.</p>
+          [cite_start]<p>Seeking international opportunities in financial analysis, treasury, and strategic finance[cite: 5]. [cite_start]Passionate about designing **data-driven finance solutions**, building BI dashboards, and implementing internal control frameworks that reduce operational risk and enhance financial efficiency[cite: 7].</p>
           <div class="meta">
             <span class="pill">SQL</span>
             <span class="pill">Power BI</span>
             <span class="pill">Advanced Excel</span>
             <span class="pill">Financial Modeling</span>
             <span class="pill">Risk Management</span>
+            <span class="pill">CFA Aspirant</span>
           </div>
           <div class="ctas">
-            <a class="btn primary" href="Financial Analyst and Controller Resume_Merin Xavy.pdf" target="_blank" rel="noopener">Resume (EN)</a>
-            <a class="btn" href="CV Analyste Financier et Contrôleur.pdf" target="_blank" rel="noopener">CV (FR)</a>
+            <a class="btn primary" href="Merin_Xavy_Financial Analyst_CV_2025.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
             <a class="btn" href="#projects">View Projects</a>
           </div>
           <div style="margin-top:18px;color:var(--muted);font-size:13px">
-            Availability: Full-time from March 2026 | Languages: English (C1), French (A2), Hindi (B1), Malayalam (Native)
+            [cite_start]Availability: Full-time from **March 2026** for compulsory internship [cite: 5] | [cite_start]Languages: English (Fluent) [cite: 54][cite_start], French (Basic) [cite: 58]
           </div>
         </div>
 
         <aside class="profile">
           <img src="Linkedln.jpg" alt="Merin Xavy" class="portrait">
           <ul style="margin-top:14px; text-align:center; list-style:none; padding:0;">
-            <li><strong>Lyon, France</strong></li>
-            <li>Email: xavy.merin@gmail.com</li>
-            <li>LinkedIn: linkedin.com/in/merin-xavy/</li>
-            <li>Phone: +33 6 03 83 89 03</li>
+            [cite_start]<li><strong>Lyon, France</strong> [cite: 2]</li>
+            [cite_start]<li>Email: xavy.merin@gmail.com [cite: 2]</li>
+            [cite_start]<li>LinkedIn: linkedin.com/in/merin-xavy/ [cite: 3]</li>
+            [cite_start]<li>Phone: +33 6 03 83 89 03 [cite: 2]</li>
           </ul>
         </aside>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
-      <h3>About Me</h3>
-      <p>I am a Financial Analyst specializing in **corporate controlling, risk management, and data-driven decision-making**. I design **BI dashboards**, implement **internal controls**, and optimize financial processes to enhance efficiency and accuracy in global organizations.</p>
+    <section id="experience">
+        <h3>Professional Experience</h3>
+        <div class="timeline">
+            <div class="t-item">
+                <div class="t-dot"></div>
+                <div class="t-content">
+                    <h4>Retail Finance Assistant <span style="font-weight:400; color:var(--muted)">| Milan Stores, Thrissur, India</span></h4>
+                    [cite_start]<p>Apr 2021 - Aug 2024 (Apprenticeship) [cite: 10, 11]</p>
+                    <ul style="color:var(--text-light); padding-left:20px;">
+                        [cite_start]<li>Supported budgeting and forecasting by analyzing financial data and cost-saving opportunities[cite: 12].</li>
+                        [cite_start]<li>**Boosted monthly revenue collections by 25%** through improved payment tracking[cite: 16].</li>
+                        [cite_start]<li>Maintained accurate records of sales, expenses, and inventory to aid decision-making[cite: 13].</li>
+                        [cite_start]<li>Tracked revenue trends with the sales team to drive business growth[cite: 14].</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="t-item">
+                <div class="t-dot"></div>
+                <div class="t-content">
+                    <h4>Finance & Accounting Intern <span style="font-weight:400; color:var(--muted)">| Inventure Metal Products, Dubai, UAE</span></h4>
+                    [cite_start]<p>Apr 2024 (Internship) [cite: 18, 19]</p>
+                    <ul style="color:var(--text-light); padding-left:20px;">
+                        [cite_start]<li>**Reduced invoice processing time by 25%** through efficient data entry and reconciliation[cite: 23].</li>
+                        [cite_start]<li>Processed invoices, reconciled accounts, and assisted in preparing financial reports[cite: 20].</li>
+                        [cite_start]<li>Conducted journal entry adjustments to maintain the integrity of financial statements[cite: 21].</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Projects -->
     <section id="projects">
-      <h3>Key Projects</h3>
+      <h3>Key Projects & Simulations</h3>
       <div class="projects-grid">
         <div class="card">
           <h4>SQL-Based BI Dashboard</h4>
-          <p>Developed optimized SQL queries and Power BI dashboards, improving reporting efficiency by 20% (Academic Project, ESDES Business School).</p>
+          [cite_start]<p>Developed SQL-based BI dashboards, enhancing real-time financial insights and **improved reporting efficiency by 20%**[cite: 50].</p>
         </div>
         <div class="card">
-          <h4>Algorithmic Risk Simulation</h4>
-          <p>Applied risk and compliance controls, reduced settlement errors by 20%, and generated financial due diligence reports (Goldman Sachs Virtual Program).</p>
+          <h4>Goldman Sachs Operations Simulation</h4>
+          [cite_start]<p>Simulated trade settlements, ensuring compliance, and **reduced settlement discrepancies by 20%** through process optimization[cite: 46, 47].</p>
         </div>
         <div class="card">
-          <h4>Process Optimization Internship</h4>
-          <p>Optimized invoice reconciliation and financial processes, reducing operational latency by 25% (Inventure Metal Products, Dubai).</p>
+          <h4>Investment Strategy Capstone</h4>
+          [cite_start]<p>Analyzed financial markets and developed investment strategies using Excel and financial modeling for Capstone Project[cite: 28].</p>
         </div>
       </div>
     </section>
+    
+    <section id="education">
+        <h3>Education</h3>
+        <div class="timeline">
+            <div class="t-item">
+                <div class="t-dot"></div>
+                <div class="t-content">
+                    <h4>Master in Management, International Business Administration</h4>
+                    [cite_start]<p>ESDES Business School, Catholic University of Lyon, France (Sep 2024 - Current) [cite: 25, 26]</p>
+                    [cite_start]<p style="font-size:14px; margin-bottom:8px;">**Relevant Coursework:** International Corporate Finance, Financial Analysis, Risk Management, Digital Transformation, Corporate Governance, Data Management[cite: 27].</p>
+                    <a href="[LINK_TO_MASTER_TRANSCRIPT]" target="_blank" class="btn" style="padding:8px 12px; font-size:14px;">View Transcripts (Link Placeholder)</a>
+                </div>
+            </div>
+            <div class="t-item">
+                <div class="t-dot"></div>
+                <div class="t-content">
+                    <h4>Bachelor of Commerce, Finance (First Class with Distinction - GPA: 3.7/4.0)</h4>
+                    [cite_start]<p>Christ College Autonomous, Irinjalakuda, India (Jul 2021 - Apr 2024) [cite: 29, 30]</p>
+                    [cite_start]<p style="font-size:14px; margin-bottom:8px;">**Leadership:** Senior Women's Council Leader, AICUF (2023-24) – led campus sustainability initiatives[cite: 31].</p>
+                    <a href="[LINK_TO_BACHELOR_TRANSCRIPT]" target="_blank" class="btn" style="padding:8px 12px; font-size:14px;">View Transcripts (Link Placeholder)</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Skills Radar -->
     <section id="skills">
-      <h3>Skills Radar</h3>
+      <h3>Skills & Expertise</h3>
       <div id="radar">
         <canvas id="radarChart"></canvas>
       </div>
+      <div style="margin-top:40px;">
+        <h4 style="font-family:'Inter'; margin-bottom:15px; color:var(--text);">Core Proficiencies:</h4>
+        <div class="meta">
+            [cite_start]<span class="pill">Financial Modeling & Forecasting [cite: 38]</span>
+            [cite_start]<span class="pill">Investment & Risk Analysis [cite: 38]</span>
+            [cite_start]<span class="pill">Data Analysis & Reporting [cite: 38]</span>
+            [cite_start]<span class="pill">Strategic Planning [cite: 39]</span>
+            [cite_start]<span class="pill">Compliance & Risk Management [cite: 39]</span>
+            [cite_start]<span class="pill">Inventory & Workflow Optimization [cite: 39]</span>
+            [cite_start]<span class="pill">Cross-functional Collaboration [cite: 43]</span>
+            [cite_start]<span class="pill">SQL / Advanced Excel [cite: 36, 38]</span>
+        </div>
+      </div>
+    </section>
+    
+    <section id="certifications">
+        <h3>Certifications & Professional Courses</h3>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-info">
+                    <h4>Investment Risk Management</h4>
+                    [cite_start]<p style="font-size:14px; margin:4px 0 0; color:var(--muted);">Coursera Project Network [cite: 60]</p>
+                    <a href="[LINK_TO_CERTIFICATE]" target="_blank" rel="noopener">View Certificate</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-info">
+                    <h4>Professional Refresher: Financial Planning</h4>
+                    [cite_start]<p style="font-size:14px; margin:4px 0 0; color:var(--muted);">The CISI [cite: 62]</p>
+                    <a href="[LINK_TO_CERTIFICATE]" target="_blank" rel="noopener">View Certificate</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-info">
+                    <h4>Sustainable Business Practices</h4>
+                    <p style="font-size:14px; margin:4px 0 0; color:var(--muted);">CPD Certified | [cite_start]Alison [cite: 59]</p>
+                    <a href="[LINK_TO_CERTIFICATE]" target="_blank" rel="noopener">View Certificate</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-info">
+                    <h4>Professional Refresher: Cryptocurrencies</h4>
+                    [cite_start]<p style="font-size:14px; margin:4px 0 0; color:var(--muted);">The CISI [cite: 63]</p>
+                    <a href="[LINK_TO_CERTIFICATE]" target="_blank" rel="noopener">View Certificate</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-info">
+                    <h4>Business Analysis and Process Management</h4>
+                    [cite_start]<p style="font-size:14px; margin:4px 0 0; color:var(--muted);">Coursera E-Learning Providers [cite: 64]</p>
+                    <a href="[LINK_TO_CERTIFICATE]" target="_blank" rel="noopener">View Certificate</a>
+                </div>
+            </div>
+             <div class="cert-card">
+                <div class="cert-info">
+                    <h4>Financial Markets Professional Program</h4>
+                    [cite_start]<p style="font-size:14px; margin:4px 0 0; color:var(--muted);">Finmark Trainers India [cite: 61]</p>
+                    <a href="[LINK_TO_CERTIFICATE]" target="_blank" rel="noopener">View Certificate</a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Behaviour Analysis -->
     <section id="behaviour">
-      <h3>Behavioural Analysis</h3>
+      <h3>Behavioural Analysis & Traits</h3>
       <div class="behaviour-grid">
         <div class="talent-card">
-          <div class="talent-icon">💡</div>
-          <h4>Persuasion</h4>
-          <p>Influences stakeholders and drives actionable insights.</p>
+          <div class="talent-icon">🤝</div>
+          <h4>Collaboration</h4>
+          [cite_start]<p>Skilled in cross-functional collaboration (Goldman Sachs Sim.)[cite: 47, 43].</p>
         </div>
         <div class="talent-card">
-          <div class="talent-icon">⚖️</div>
-          <h4>Conflict Resolution</h4>
-          <p>Manages and resolves challenges diplomatically.</p>
+          <div class="talent-icon">✨</div>
+          <h4>Attention to Detail</h4>
+          [cite_start]<p>Ensures integrity of financial statements and accurate data entry[cite: 21, 45].</p>
         </div>
         <div class="talent-card">
-          <div class="talent-icon">🌊</div>
-          <h4>Adaptation</h4>
-          <p>Quickly adjusts to new processes and environments.</p>
+          <div class="talent-icon">🌱</div>
+          <h4>Sustainability Focus</h4>
+          [cite_start]<p>Led campus sustainability initiatives (AICUF Leader)[cite: 31].</p>
+        </div>
+        <div class="talent-card">
+          <div class="talent-icon">📈</div>
+          <h4>Proactive Problem-Solving</h4>
+          [cite_start]<p>Drives growth and optimizes processes (25% revenue/processing time boost)[cite: 16, 23, 45].</p>
         </div>
       </div>
     </section>
 
-    <!-- Timeline -->
     <section id="timeline">
-      <h3>Timeline</h3>
+      <h3>Chronological Journey</h3>
       <div class="timeline">
-        <div class="t-item">
-          <div class="t-dot"></div>
-          <div class="t-content"><h4>2024 – 2026 (Expected)</h4><p>Master in Management (M2), ESDES Business School, Lyon, France</p></div>
-        </div>
-        <div class="t-item">
-          <div class="t-dot"></div>
-          <div class="t-content"><h4>2021 – 2024</h4><p>Bachelor of Commerce – Finance, Christ College (Autonomous), Kerala, India</p></div>
-        </div>
-        <div class="t-item">
-          <div class="t-dot"></div>
-          <div class="t-content"><h4>Apr 2024</h4><p>Finance & Accounting Intern, Inventure Metal Products, Dubai, UAE</p></div>
-        </div>
-        <div class="t-item">
-          <div class="t-dot"></div>
-          <div class="t-content"><h4>Apr 2021 – Aug 2024</h4><p>Retail Finance Assistant, Milan Stores, Thrissur, India</p></div>
-        </div>
+        <div class="t-item"><div class="t-dot"></div><div class="t-content"><h4>Aug 2026 (Expected)</h4><p>Thesis Presentation for Master's Graduation.</p></div></div>
+        <div class="t-item"><div class="t-dot"></div><div class="t-content"><h4>Mar 2026 (Starting)</h4><p>**Compulsory Internship** begins for Master's degree.</p></div></div>
+        [cite_start]<div class="t-item"><div class="t-dot"></div><div class="t-content"><h4>Sep 2024 – Feb 2026</h4><p>Masters in Management, ESDES Business School, Lyon, France[cite: 25].</p></div></div>
+        [cite_start]<div class="t-item"><div class="t-dot"></div><div class="t-content"><h4>Apr 2024</h4><p>Finance & Accounting Internship, Inventure Metal Products, Dubai, UAE[cite: 18].</p></div></div>
+        [cite_start]<div class="t-item"><div class="t-dot"></div><div class="t-content"><h4>Jul 2021 – Apr 2024</h4><p>Bachelor of Commerce – Finance, Christ College (Autonomous), Kerala, India[cite: 29].</p></div></div>
+        [cite_start]<div class="t-item"><div class="t-dot"></div><div class="t-content"><h4>Apr 2021 – Aug 2024</h4><p>Retail Finance Assistant Apprenticeship, Milan Stores, India[cite: 10].</p></div></div>
       </div>
     </section>
 
-    <!-- Resume -->
     <section id="resume">
-      <h3>Resume</h3>
-      <p>Download my resume for detailed professional experience, education, and projects:</p>
-      <a class="btn primary" href="Financial Analyst and Controller Resume_Merin Xavy.pdf" target="_blank" rel="noopener">Download Resume (EN)</a>
+      <h3>Download Documents</h3>
+      <p>Download my professional documents for a detailed review of my qualifications.</p>
+      <a class="btn primary" href="Merin_Xavy_Financial Analyst_CV_2025.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+      <a class="btn" href="CV Analyste Financier et Contrôleur.pdf" target="_blank" rel="noopener">Download CV (French)</a>
     </section>
 
   </main>
@@ -251,7 +363,6 @@
     &copy; 2025 Merin Xavy. All rights reserved.
   </footer>
 
-  <!-- JS for 3D tilt, radar chart, and behaviour hover -->
   <script>
     // 3D Profile Tilt
     const profile = document.querySelector('.portrait');
@@ -269,15 +380,15 @@
       profile.style.boxShadow = "0 10px 25px rgba(0,0,0,0.15), 0 0 25px rgba(212,175,55,0.25)";
     });
 
-    // Radar Chart
+    // Radar Chart - Data is illustrative; you should customize these values
     const ctx = document.getElementById('radarChart').getContext('2d');
     const radarChart = new Chart(ctx, {
       type: 'radar',
       data: {
-        labels: ['SQL', 'Power BI', 'Excel', 'Financial Modeling', 'Risk Management', 'Data Analysis'],
+        labels: ['Financial Modeling', 'Data Analysis', 'Risk Management', 'Compliance/Governance', 'Excel/BI Tools', 'Strategic Planning'],
         datasets: [{
           label: 'Skill Level',
-          data: [90, 85, 95, 80, 75, 88],
+          data: [85, 90, 80, 75, 95, 80],
           backgroundColor: 'rgba(212,175,55,0.2)',
           borderColor: 'rgba(212,175,55,1)',
           borderWidth: 2,
@@ -286,11 +397,19 @@
       },
       options: {
         scales: {
-          r: { beginAtZero:true, min:0, max:100, ticks:{ stepSize:20, color:'#1A1A1A' } }
+          r: { 
+            beginAtZero:true, 
+            min:0, 
+            max:100, 
+            ticks:{ stepSize:20, color:'#1A1A1A', backdropColor: 'var(--highlight)' },
+            grid: { color: 'rgba(0,0,0,0.1)' },
+            pointLabels: { font: { size: 14, weight: '600' }, color: 'var(--text)' }
+          }
         },
         plugins: { legend:{ display:false } },
         responsive:true,
-        maintainAspectRatio:false
+        maintainAspectRatio:false,
+        layout: { padding: 10 }
       }
     });
 
