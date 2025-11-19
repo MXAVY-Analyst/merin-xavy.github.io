@@ -787,69 +787,7 @@
     </div>
   </footer>
 
-  <script>
-    // --- SPLASH SCREEN LOGIC ---
-    document.addEventListener('DOMContentLoaded', () => {
-        const splashScreen = document.getElementById('splash-screen');
-        const splashCta = document.getElementById('splash-cta-btn');
-        const body = document.body;
+<script src="script.js"></script>
 
-        const hideSplash = () => {
-            // Start the fade-out transition
-            splashScreen.style.opacity = '0';
-            
-            // Wait for the transition to complete (0.8s, matching CSS transition)
-            setTimeout(() => {
-                // Hide the screen completely
-                splashScreen.style.visibility = 'hidden';
-                // Remove the no-scroll class to allow scrolling of the main content
-                body.classList.remove('no-scroll');
-            }, 800);
-        };
-
-        // Attach the click event to the CTA
-        splashCta.addEventListener('click', (e) => {
-            e.preventDefault();
-            hideSplash();
-        });
-        
-        // Ensure the body starts with no-scroll to keep the splash page fixed
-        body.classList.add('no-scroll');
-
-    });
-
-    // Radar Chart - Data is illustrative; customize values (0-100)
-    const ctx = document.getElementById('radarChart').getContext('2d');
-    const radarChart = new Chart(ctx, {
-      type: 'radar',
-      data: {
-        labels: ['Financial Modeling', 'Data Analysis', 'Risk Management', 'Compliance/Governance', 'Excel/BI Tools', 'Strategic Planning'],
-        datasets: [{
-          label: 'Skill Level',
-          data: [85, 90, 80, 75, 95, 80],
-          backgroundColor: 'rgba(203,173,141,0.2)', /* Using --gold with transparency */
-          borderColor: 'rgba(203,173,141,1)', /* Using --gold */
-          borderWidth: 2,
-          pointBackgroundColor: 'rgba(203,173,141,1)', /* Using --gold */
-        }]
-      },
-      options: {
-        scales: {
-          r: { 
-            beginAtZero:true, 
-            min:0, 
-            max:100, 
-            ticks:{ stepSize:20, color: 'var(--text)', backdropColor: 'var(--highlight)' },
-            grid: { color: 'rgba(58,45,40,0.1)' },
-            pointLabels: { font: { size: 14, weight: '600' }, color: 'var(--text)' }
-          }
-        },
-        plugins: { legend:{ display:false } },
-        responsive:true,
-        maintainAspectRatio:false,
-        layout: { padding: 10 }
-      }
-    });
-  </script>
 </body>
 </html>
