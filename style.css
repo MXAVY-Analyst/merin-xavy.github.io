@@ -6,7 +6,7 @@
 
 /* --- 1. Global Variables & Reset --- */
 :root {
-  /* MODERN COOL-TONE PALETTE */
+  /* MODERN COOL-TONE PALETTE (Slate Blue, Forest Green, White) */
   --bg: #F5F7F9;           /* Very Light Grey/Blue - Main Background (Subtle cream) */
   --text: #2C3E50;         /* Deep Slate Blue - Main Text */
   --text-light: #7F8C8D;   /* Muted Grey/Silver - Secondary Text/Paragraphs */
@@ -83,7 +83,7 @@ h3, p, span, li {
 }
 
 .splash-cta {
-  font-family: 'Alice', serif; /* Specific accent font */
+  font-family: 'Alice', serif;
   font-size: 18px;
   color: var(--text-light);
   cursor: pointer;
@@ -94,7 +94,7 @@ h3, p, span, li {
   transition: color 0.3s;
 }
 
-.splash-cta:hover { color: var(--accent); } /* Updated: uses --accent */
+.splash-cta:hover { color: var(--accent); }
 
 .arrow-down {
   width: 30px;
@@ -104,7 +104,7 @@ h3, p, span, li {
   animation: bounce 2s infinite;
 }
 
-.splash-cta:hover .arrow-down { fill: var(--accent); } /* Updated: uses --accent */
+.splash-cta:hover .arrow-down { fill: var(--accent); }
 
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
@@ -122,7 +122,7 @@ header {
   align-items: center;
   padding: 20px clamp(16px,4vw,48px);
   background: var(--bg); 
-  /* Updated: uses new accent color RGB for border opacity */
+  /* Green RGB for border opacity */
   border-bottom: 1px solid rgba(22, 160, 133, 0.2); 
 }
 
@@ -132,7 +132,7 @@ header {
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: var(--accent); /* Updated: uses --accent */
+  background: var(--accent);
   background-image: url('image_93f7e7.png'); 
   background-size: cover;
   background-position: center;
@@ -147,7 +147,7 @@ nav a {
   transition: 0.3s;
 }
 
-nav a:hover { color: var(--accent); } /* Updated: uses --accent */
+nav a:hover { color: var(--accent); }
 
 /* --- 5. Hero Section (40:60 Split) --- */
 .hero-container {
@@ -221,12 +221,12 @@ nav a:hover { color: var(--accent); } /* Updated: uses --accent */
   margin-top: 25px; 
   margin-bottom: 25px;
   padding-top: 10px;
-  /* Updated: uses new accent color RGB for dashed border opacity */
+  /* Green RGB for dashed border opacity */
   border-top: 1px dashed rgba(22, 160, 133, 0.2); 
 }
 
 .pill {
-  /* Updated: uses new accent color RGB for background opacity */
+  /* Green RGB for background opacity */
   background: rgba(22, 160, 133, 0.1); 
   color: var(--text);
   padding: 6px 12px;
@@ -238,19 +238,19 @@ nav a:hover { color: var(--accent); } /* Updated: uses --accent */
 .btn-group { margin-top: 30px; }
 
 .btn-download {
-  background: var(--accent); /* Updated: uses --accent */
+  background: var(--accent);
   color: var(--highlight);
   border: none;
   padding: 12px 20px;
   border-radius: 8px;
   font-weight: 700;
   transition: var(--transition-speed);
-  /* Updated: uses new accent color RGB for shadow opacity */
+  /* Green RGB for shadow opacity */
   box-shadow: 0 4px 15px rgba(22, 160, 133, 0.4); 
 }
 
 .btn-download:hover {
-  background: #1abc9c; /* Slightly lighter shade of accent for hover */
+  background: #1abc9c;
   box-shadow: 0 6px 20px rgba(22, 160, 133, 0.6);
 }
 
@@ -267,7 +267,7 @@ nav a:hover { color: var(--accent); } /* Updated: uses --accent */
 
 .btn-view:hover {
   background: var(--highlight);
-  border-color: var(--accent); /* Updated: uses --accent */
+  border-color: var(--accent);
 }
 
 .availability-note { 
@@ -275,7 +275,7 @@ nav a:hover { color: var(--accent); } /* Updated: uses --accent */
   color: var(--muted); 
   margin-top: 25px; 
   padding-top: 15px; 
-  /* Updated: uses new accent color RGB for dashed border opacity */
+  /* Green RGB for dashed border opacity */
   border-top: 1px dashed rgba(22, 160, 133, 0.2); 
 }
 
@@ -299,7 +299,8 @@ h4 { font-size: 28px; margin-bottom: 24px; }
   background: var(--highlight); 
   padding: 30px; 
   border-radius: 24px; 
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(22, 160, 133, 0.1); /* Updated: Accent RGB */
+  /* Green RGB for border opacity */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(22, 160, 133, 0.1); 
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
   position: relative; 
   min-height: 280px; 
@@ -339,8 +340,8 @@ h4 { font-size: 28px; margin-bottom: 24px; }
   width: 60px;
   height: 60px;
   border-radius: 8px;
-  /* Updated: gradient now uses the accent color and dark background */
-  background: linear-gradient(45deg, #16A085, #2C3E50); 
+  /* Gradient uses the accent color and dark background */
+  background: linear-gradient(45deg, var(--accent), var(--dark-bg)); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -366,7 +367,7 @@ h4 { font-size: 28px; margin-bottom: 24px; }
 }
 
 .cert-card { display: flex; flex-direction: column; justify-content: center; }
-.cert-card a { color: var(--accent); font-weight: 600; font-size: 14px; margin-top: 10px; display: block; } /* Updated: uses --accent */
+.cert-card a { color: var(--accent); font-weight: 600; font-size: 14px; margin-top: 10px; display: block; }
 
 /* --- 8. Language Grid --- */
 .language-grid { 
@@ -377,7 +378,7 @@ h4 { font-size: 28px; margin-bottom: 24px; }
 }
 
 .language-card {
-  border-left: 5px solid var(--accent); /* Updated: uses --accent */
+  border-left: 5px solid var(--accent);
   background: var(--highlight); 
   padding: 20px; 
   border-radius: 18px; 
@@ -398,18 +399,18 @@ h4 { font-size: 28px; margin-bottom: 24px; }
 .t-dot {
   width: 14px;
   height: 14px;
-  background: var(--accent); /* Updated: uses --accent */
+  background: var(--accent);
   border-radius: 50%;
   position: absolute;
   left: -29px;
   top: 4px;
-  /* Updated: Accent RGB for shadow */
+  /* Green RGB for shadow */
   box-shadow: 0 4px 10px rgba(22, 160, 133, 0.4); 
 }
 
 /* --- 10. Footer & Contact --- */
 #thank-you {
-  background: var(--dark-bg); /* Updated: uses --dark-bg (Slate Blue) */
+  background: var(--dark-bg);
   color: var(--highlight);
   text-align: center;
   padding: 15vh 24px; 
@@ -426,7 +427,7 @@ footer {
   padding: 48px; 
   text-align: center; 
   color: var(--muted); 
-  /* Updated: Accent RGB for border opacity */
+  /* Green RGB for border opacity */
   border-top: 1px solid rgba(22, 160, 133, 0.2); 
 }
 
@@ -439,7 +440,7 @@ footer {
 }
 
 .footer-contact a { color: var(--text-light); transition: color 0.3s; }
-.footer-contact a:hover { color: var(--accent); } /* Updated: uses --accent */
+.footer-contact a:hover { color: var(--accent); }
 
 /* --- 11. Responsive Media Queries --- */
 @media (max-width: 900px) {
