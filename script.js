@@ -5,7 +5,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("Merin Xavy's portfolio script is initialized.");
+    console.log("Merin Xavy's portfolio script is initialized with Cool-Tone Palette.");
 
     // ========================================================
     // 1. SPLASH SCREEN LOGIC
@@ -14,25 +14,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const splashCta = document.getElementById('splash-cta-btn');
     const body = document.body;
 
-    // Only run if elements exist to prevent errors
     if (splashScreen && splashCta) {
-        
-        // Ensure the body starts with no-scroll (in case CSS didn't catch it)
         body.classList.add('no-scroll');
 
         splashCta.addEventListener('click', (e) => {
             e.preventDefault();
-
-            // 1. Start the fade-out transition
+            // Start the fade-out transition (CSS handles the 0.8s timing)
             splashScreen.style.opacity = '0';
             
-            // 2. Wait for the transition to complete (800ms matches CSS transition)
             setTimeout(() => {
-                // Hide the screen completely so it doesn't block clicks
+                // Hide the screen completely and unlock scrolling
                 splashScreen.style.visibility = 'hidden';
                 splashScreen.style.display = 'none';
-                
-                // 3. Unlock scrolling
                 body.classList.remove('no-scroll');
             }, 800);
         });
@@ -43,9 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========================================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
+            const targetElement = document.querySelector(this.getAttribute('href'));
             if (targetElement) {
                 e.preventDefault();
                 targetElement.scrollIntoView({
@@ -59,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========================================================
     // 3. SKILLS RADAR CHART (Chart.js)
     // ========================================================
-    // Note: Colors here match the CSS variables (--gold and --text)
+    // Colors updated to: Accent Green (#16A085) and Text Blue (#2C3E50)
     const canvas = document.getElementById('radarChart');
 
     if (canvas && typeof Chart !== 'undefined') {
@@ -79,22 +70,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 datasets: [{
                     label: 'Proficiency Level',
                     data: [85, 90, 80, 75, 95, 80], // Illustrative values (0-100)
-                    backgroundColor: 'rgba(203, 173, 141, 0.2)', /* Matches --gold with opacity */
-                    borderColor: 'rgba(203, 173, 141, 1)',       /* Matches --gold solid */
+                    // Deep Forest Green: #16A085 (RGB: 22, 160, 133)
+                    backgroundColor: 'rgba(22, 160, 133, 0.2)',    /* Green with opacity */
+                    borderColor: 'rgba(22, 160, 133, 1)',          /* Solid Green border */
                     borderWidth: 2,
-                    pointBackgroundColor: 'rgba(203, 173, 141, 1)',
+                    pointBackgroundColor: 'rgba(22, 160, 133, 1)',
                     pointBorderColor: '#fff',
                     pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(203, 173, 141, 1)'
+                    pointHoverBorderColor: 'rgba(22, 160, 133, 1)'
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { display: false }, // Hide legend for cleaner look
+                    legend: { display: false },
                     tooltip: {
-                        backgroundColor: '#3A2D28', // Matches --text color
+                        backgroundColor: '#2C3E50', // Matches --text (Slate Blue)
                         titleFont: { family: 'Playfair Display' },
                         bodyFont: { family: 'Inter' }
                     }
@@ -104,27 +96,18 @@ document.addEventListener('DOMContentLoaded', function() {
                         beginAtZero: true, 
                         min: 0, 
                         max: 100, 
-                        ticks: { 
-                            stepSize: 20, 
-                            display: false // Hides the numbers on the axis for a cleaner look
-                        },
+                        ticks: { display: false },
                         grid: { 
-                            color: 'rgba(58, 45, 40, 0.1)' // Subtle grid lines
+                            // Matches a lighter shade of --text (Slate Blue)
+                            color: 'rgba(44, 62, 80, 0.1)' 
                         },
                         pointLabels: { 
-                            font: { 
-                                size: 12, 
-                                weight: '600',
-                                family: 'Inter'
-                            }, 
-                            color: '#3A2D28' // Matches --text color
+                            font: { size: 12, weight: '600', family: 'Inter' }, 
+                            color: '#2C3E50' // Matches --text (Slate Blue)
                         }
                     }
                 }
             }
         });
-    } else if (!canvas) {
-        console.warn('Canvas element #radarChart not found.');
     }
-
 });
